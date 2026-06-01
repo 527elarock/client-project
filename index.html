@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hollow Creek Farm — Fresh From Our Fields to Your Family</title>
+  <meta name="description" content="Hollow Creek Farm offers U-Pick experiences, farm-fresh goods, seasonal events, hayrides, and more. Plan your visit today!" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =====================================================
+       NAVIGATION
+  ====================================================== -->
+  <nav id="main-nav" class="navbar navbar-expand-lg">
+    <div class="container">
+
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#hero">
+        <!-- Replace src with: assets/Logos/logo-main-full-color.png -->
+        <!-- alt: Hollow Creek Farm logo featuring a red barn and sunflower illustration inside a circular badge design -->
+        <div class="img-placeholder nav-logo-img" style="width:44px;height:44px;border-radius:50%;font-size:0.55rem;">
+          <span class="ph-icon" style="font-size:1rem;">🌻</span>
+        </div>
+        <span class="nav-logo-text">Hollow Creek Farm</span>
+      </a>
+
+      <!-- Mobile toggle -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Nav links -->
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#today"       data-section="today">Farm Map</a></li>
+          <li class="nav-item"><a class="nav-link" href="#map-section" data-section="map-section">Reservations</a></li>
+          <li class="nav-item"><a class="nav-link" href="#farm-shop"   data-section="farm-shop">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="#events"      data-section="events">Events &amp; Activities</a></li>
+          <li class="nav-item"><a class="nav-link" href="#footer"      data-section="footer">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#footer">Contact</a></li>
+          <li class="nav-item">
+            <a class="nav-link nav-cta" href="#map-section">
+              <i class="bi bi-calendar-check me-1"></i>Book a Visit
+              <span id="cart-count" style="display:none;background:var(--color-barn-red);color:#fff;border-radius:99px;font-size:0.65rem;padding:1px 6px;margin-left:6px;"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- =====================================================
+       HERO
+  ====================================================== -->
+  <section id="hero">
+    <!-- Hero background image -->
+    <!-- Replace with: <img src="Hero Imgs/hero-barn-creek-sunflowers-sunrise.png" alt="Illustrated sunrise view of the Hollow Creek Farm red barn with a winding creek and sunflowers in the foreground" class="hero-bg"> -->
+    <div class="hero-bg-placeholder"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+      <div class="row align-items-center">
+
+        <!-- Text col -->
+        <div class="col-lg-6">
+          <p class="hero-eyebrow">Welcome to</p>
+          <h1>Hollow Creek Farm</h1>
+          <p class="hero-sub">A seasonal farm for the whole family. Farm-friendly activities, farm-made goods, and homegrown memories — plan your visit in minutes.</p>
+          <div class="hero-actions">
+            <a href="#today" class="btn-primary">Explore the Farm</a>
+            <a href="#map-section" class="btn-outline" style="color:var(--color-cream);border-color:var(--color-cream);">Book a Visit</a>
+          </div>
+        </div>
+
+        <!-- Image col -->
+        <div class="col-lg-6 hero-img-col">
+          <div class="hero-img-frame" style="position:relative;">
+            <!-- Replace with: <img src="assets/Hero Imgs/hero-sunflower-field-path-to-barn.png" alt="A dirt path leads through rows of sunflowers toward the Hollow Creek Farm barn at golden hour" class="hero-img-frame"> -->
+            <div class="img-placeholder" style="height:360px;">
+              <span class="ph-icon">🌾</span>
+              <span class="ph-label">Hero Image</span>
+              <span class="ph-file">assets/Hero Imgs/<br>hero-sunflower-field-path-to-barn.png</span>
+            </div>
+            <div class="hero-badge">Est.<br>1962<br>⭐⭐⭐⭐⭐</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       TODAY ON THE FARM
+  ====================================================== -->
+  <section id="today" class="section-pad bg-cream">
+    <div class="container">
+
+      <div class="today-header fade-up">
+        <span class="section-label">What's Happening</span>
+        <h2>Today on the Farm</h2>
+        <div class="divider-leaf"><span>🌿</span></div>
+        <p class="section-intro">Pick an activity and plan your visit in minutes.</p>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- Card 1 -->
+        <div class="col-sm-6 col-lg-3 fade-up">
+          <div class="activity-card">
+            <!-- Replace with: <img src="assets/Events/event-sunflower-upick-family-sunset.png" alt="A family picks sunflowers at Hollow Creek Farm at sunset, with the red barn visible in the background" class="activity-card-img"> -->
+            <div class="activity-card-img img-placeholder">
+              <span class="ph-icon">🌻</span>
+              <span class="ph-file">events/event-sunflower-upick-<br>family-sunset.png</span>
+            </div>
+            <div class="activity-card-body">
+              <span class="activity-tag">U-Pick</span>
+              <h3>Sunflower Days</h3>
+              <p>Pick your own bouquet straight from the field. All ages welcome — buckets provided.</p>
+              <div class="activity-meta">
+                <span><i class="bi bi-clock"></i> 9am–6pm</span>
+                <span><i class="bi bi-people"></i> All ages</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-sm-6 col-lg-3 fade-up">
+          <div class="activity-card">
+            <!-- Replace with: <img src="assets/Events/event-pumpkin-patch-father-son-wagon.png" alt="A father and son walk through the Hollow Creek Farm pumpkin patch pulling a red wagon full of orange pumpkins" class="activity-card-img"> -->
+            <div class="activity-card-img img-placeholder">
+              <span class="ph-icon">🎃</span>
+              <span class="ph-file">events/event-pumpkin-patch-<br>father-son-wagon.png</span>
+            </div>
+            <div class="activity-card-body">
+              <span class="activity-tag">Seasonal</span>
+              <h3>Pumpkin Patch</h3>
+              <p>Wander the patch and find the perfect pumpkin. Wagons available for the little ones.</p>
+              <div class="activity-meta">
+                <span><i class="bi bi-clock"></i> 10am–5pm</span>
+                <span><i class="bi bi-geo-alt"></i> East Field</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-sm-6 col-lg-3 fade-up">
+          <div class="activity-card">
+            <!-- Replace with: <img src="assets/Events/event-hayride-tractor-wagon-sunset.png" alt="Families enjoy a hayride on a wooden wagon pulled by a green tractor at Hollow Creek Farm at sunset" class="activity-card-img"> -->
+            <div class="activity-card-img img-placeholder">
+              <span class="ph-icon">🚜</span>
+              <span class="ph-file">events/event-hayride-tractor-<br>wagon-sunset.png</span>
+            </div>
+            <div class="activity-card-body">
+              <span class="activity-tag">Ride</span>
+              <h3>Hayride</h3>
+              <p>Climb aboard our wagon for a guided ride around the farm. Departs every 30 minutes.</p>
+              <div class="activity-meta">
+                <span><i class="bi bi-clock"></i> 11am–4pm</span>
+                <span><i class="bi bi-ticket"></i> $8/person</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="col-sm-6 col-lg-3 fade-up">
+          <div class="activity-card">
+            <!-- Replace with: <img src="assets/Events/event-corn-maze-entrance-family.png" alt="Two children walk through the wooden arch entrance to the Hollow Creek Farm corn maze surrounded by tall corn stalks" class="activity-card-img"> -->
+            <div class="activity-card-img img-placeholder">
+              <span class="ph-icon">🌽</span>
+              <span class="ph-file">events/event-corn-maze-<br>entrance-family.png</span>
+            </div>
+            <div class="activity-card-body">
+              <span class="activity-tag">Adventure</span>
+              <h3>Corn Maze</h3>
+              <p>Navigate 5 acres of twists and turns — a challenge for every age and skill level.</p>
+              <div class="activity-meta">
+                <span><i class="bi bi-clock"></i> 10am–7pm</span>
+                <span><i class="bi bi-ticket"></i> $12/person</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="col-sm-6 col-lg-3 fade-up">
+          <div class="activity-card">
+            <!-- Replace with: <img src="assets/Events/event-baby-animals-goats-chicks-spring.png" alt="Children and a parent feed and pet baby goats and chicks outside the Hollow Creek Farm barn at sunset" class="activity-card-img"> -->
+            <div class="activity-card-img img-placeholder">
+              <span class="ph-icon">🐐</span>
+              <span class="ph-file">events/event-baby-animals-<br>goats-chicks-spring.png</span>
+            </div>
+            <div class="activity-card-body">
+              <span class="activity-tag">Animals</span>
+              <h3>Animal Barn</h3>
+              <p>Meet and feed our friendly farm animals. Baby goats, chickens, and more await.</p>
+              <div class="activity-meta">
+                <span><i class="bi bi-clock"></i> 9am–5pm</span>
+                <span><i class="bi bi-people"></i> Kid-friendly</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="col-sm-6 col-lg-3 fade-up">
+          <div class="activity-card">
+            <!-- Replace with: <img src="assets/Events/event-strawberry-upick-child-basket.png" alt="A young girl in a straw hat picks fresh strawberries into a basket at Hollow Creek Farm's U-Pick strawberry field" class="activity-card-img"> -->
+            <div class="activity-card-img img-placeholder">
+              <span class="ph-icon">🍓</span>
+              <span class="ph-file">events/event-strawberry-<br>upick-child-basket.png</span>
+            </div>
+            <div class="activity-card-body">
+              <span class="activity-tag">U-Pick</span>
+              <h3>Strawberry Field</h3>
+              <p>Pick fresh strawberries straight from the vine. Baskets included with entry.</p>
+              <div class="activity-meta">
+                <span><i class="bi bi-clock"></i> 8am–2pm</span>
+                <span><i class="bi bi-geo-alt"></i> South Field</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="col-sm-6 col-lg-3 fade-up">
+          <div class="activity-card">
+            <!-- Replace with: <img src="assets/Events/event-apple-cider-pressing-family.png" alt="A farmer demonstrates apple cider pressing for two children at Hollow Creek Farm, with baskets of apples and jars of cider nearby" class="activity-card-img"> -->
+            <div class="activity-card-img img-placeholder">
+              <span class="ph-icon">🍎</span>
+              <span class="ph-file">events/event-apple-cider-<br>pressing-family.png</span>
+            </div>
+            <div class="activity-card-body">
+              <span class="activity-tag">Demo</span>
+              <h3>Cider Pressing</h3>
+              <p>Watch our farmers press fresh apple cider and take home a jug of your own.</p>
+              <div class="activity-meta">
+                <span><i class="bi bi-clock"></i> 1pm–4pm</span>
+                <span><i class="bi bi-calendar"></i> Weekends</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="col-sm-6 col-lg-3 fade-up">
+          <div class="activity-card">
+            <!-- Replace with: <img src="assets/Events/event-farm-to-table-dinner-string-lights.png" alt="An outdoor farm-to-table dinner set up at Hollow Creek Farm with sunflower centerpieces, candles, and string lights above" class="activity-card-img"> -->
+            <div class="activity-card-img img-placeholder">
+              <span class="ph-icon">🕯️</span>
+              <span class="ph-file">events/event-farm-to-table-<br>dinner-string-lights.png</span>
+            </div>
+            <div class="activity-card-body">
+              <span class="activity-tag">Dining</span>
+              <h3>Farm-to-Table Dinner</h3>
+              <p>An unforgettable outdoor dining experience with dishes made from our own harvest.</p>
+              <div class="activity-meta">
+                <span><i class="bi bi-clock"></i> 6pm–9pm</span>
+                <span><i class="bi bi-calendar"></i> Fri &amp; Sat</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /row -->
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       MAP SECTION
+  ====================================================== -->
+  <section id="map-section" class="section-pad bg-parchment">
+    <div class="container">
+
+      <div class="map-header fade-up">
+        <span class="section-label">Find Us</span>
+        <h2>See the Farm Your Way</h2>
+        <div class="divider-leaf"><span>🌿</span></div>
+        <p class="section-intro">Roaming trails, active farms, fields, and nature spots — everything about us on one easy map.</p>
+        <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
+          <a href="#" class="btn-primary">Plan a Reservation</a>
+          <a href="#" class="btn-outline">View Full Map</a>
+        </div>
+      </div>
+
+      <div class="row g-4 mt-2 align-items-start">
+
+        <!-- Map embed -->
+        <div class="col-lg-8 fade-up">
+          <div class="map-container">
+            <!--
+              GOOGLE MAPS EMBED
+              Replace YOUR_API_KEY below with your actual API key.
+              Also update the 'q' parameter to your real farm address.
+
+              <iframe
+                src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=Hollow+Creek+Farm"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+
+              OR use the Map.png asset as a fallback:
+              <img src="assets/Map.png" alt="Map showing the location of Hollow Creek Farm" style="width:100%;height:100%;object-fit:cover;">
+            -->
+            <div class="map-placeholder">
+              <i class="bi bi-map" style="font-size:2.5rem;color:var(--color-gold);"></i>
+              <p style="font-weight:700;font-size:0.95rem;color:var(--color-forest);margin:0;">Google Maps Embed</p>
+              <p style="font-size:0.8rem;opacity:0.7;margin:0;text-align:center;max-width:280px;">Replace this block with your Google Maps iframe.<br>See the HTML comment above for instructions.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map highlights sidebar -->
+        <div class="col-lg-4 fade-up">
+          <h3 style="margin-bottom:20px;">Map Highlights</h3>
+
+          <div class="map-highlight-item">
+            <div class="map-hi-icon"><i class="bi bi-door-open"></i></div>
+            <div class="map-hi-text">
+              <h4>Main Entrance</h4>
+              <p>Open daily 8am–7pm. Free parking on arrival.</p>
+            </div>
+          </div>
+
+          <div class="map-highlight-item">
+            <div class="map-hi-icon"><i class="bi bi-basket2"></i></div>
+            <div class="map-hi-text">
+              <h4>Farm Store</h4>
+              <p>Fresh goods, preserves, baked items &amp; more.</p>
+            </div>
+          </div>
+
+          <div class="map-highlight-item">
+            <div class="map-hi-icon"><i class="bi bi-flower1"></i></div>
+            <div class="map-hi-text">
+              <h4>U-Pick Fields</h4>
+              <p>Sunflowers, strawberries &amp; blueberries in season.</p>
+            </div>
+          </div>
+
+          <div class="map-highlight-item">
+            <div class="map-hi-icon"><i class="bi bi-tree"></i></div>
+            <div class="map-hi-text">
+              <h4>Trails</h4>
+              <p>Trail maps available at the entrance gate.</p>
+            </div>
+          </div>
+
+          <div class="map-highlight-item">
+            <div class="map-hi-icon"><i class="bi bi-p-square"></i></div>
+            <div class="map-hi-text">
+              <h4>Parking</h4>
+              <p>Free gravel lot — accessible spaces available.</p>
+            </div>
+          </div>
+
+          <div class="map-highlight-item">
+            <div class="map-hi-icon"><i class="bi bi-geo-alt"></i></div>
+            <div class="map-hi-text">
+              <h4>Activity Areas</h4>
+              <p>Seasonal attractions marked on the farm map.</p>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <a href="#" class="btn-primary w-100" style="text-align:center;">Get Directions</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       WHAT'S INCLUDED
+  ====================================================== -->
+  <section id="whats-included" class="section-pad bg-forest">
+    <div class="container">
+
+      <div class="text-center mb-5 fade-up">
+        <span class="section-label">Perks of Every Visit</span>
+        <h2>What's Included</h2>
+        <div class="divider-leaf"><span>🌿</span></div>
+        <p class="section-intro">Clear options for families — smooth, safe, easy to confirm with all the tools.</p>
+      </div>
+
+      <div class="row g-3">
+
+        <div class="col-6 col-md-4 col-lg-2 fade-up">
+          <div class="included-card">
+            <div class="included-icon">⏱️</div>
+            <h3>Timed Entry</h3>
+            <p>Reduces wait times</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2 fade-up">
+          <div class="included-card">
+            <div class="included-icon">👨‍👩‍👧</div>
+            <h3>Family Friendly</h3>
+            <p>Kid-safe experiences</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2 fade-up">
+          <div class="included-card">
+            <div class="included-icon">📸</div>
+            <h3>Natural Setting</h3>
+            <p>Scenic photo spots</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2 fade-up">
+          <div class="included-card">
+            <div class="included-icon">🅿️</div>
+            <h3>Easy Parking</h3>
+            <p>Close to attractions</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2 fade-up">
+          <div class="included-card">
+            <div class="included-icon">🫙</div>
+            <h3>Farm-Made Goodies</h3>
+            <p>Fresh &amp; homemade items</p>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2 fade-up">
+          <div class="included-card">
+            <div class="included-icon">🎟️</div>
+            <h3>Activity Options</h3>
+            <p>Reserve your favorites</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       FARM SHOP
+  ====================================================== -->
+  <section id="farm-shop" class="section-pad bg-cream">
+    <div class="container">
+
+      <div class="shop-header fade-up">
+        <span class="section-label">Our Products</span>
+        <h2>Farm Shop</h2>
+        <div class="divider-leaf"><span>🌿</span></div>
+        <p class="section-intro">Homegrown, handcrafted, and freshly made — straight from our farm to your table.</p>
+      </div>
+
+      <!-- Filter bar -->
+      <div class="shop-filter-bar fade-up">
+        <button class="filter-btn active" data-filter="all">All Products</button>
+        <button class="filter-btn" data-filter="pantry">Pantry</button>
+        <button class="filter-btn" data-filter="bakery">Bakery</button>
+        <button class="filter-btn" data-filter="produce">Produce</button>
+        <button class="filter-btn" data-filter="dairy">Eggs &amp; Dairy</button>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- Product 1 -->
+        <div class="col-6 col-md-4 col-lg-3 product-col fade-up">
+          <div class="product-card" data-category="pantry">
+            <!-- Replace with: <img src="assets/productPhotos/product-raw-honey-jar.png" alt="A jar of Hollow Creek Farm raw honey with a golden dripping honey dipper beside it" class="product-card-img"> -->
+            <div class="product-card-img img-placeholder">
+              <span class="ph-icon">🍯</span>
+              <span class="ph-file">productPhotos/<br>product-raw-honey-jar.png</span>
+            </div>
+            <div class="product-card-body">
+              <p class="product-category">Pantry</p>
+              <h3>Raw Wildflower Honey</h3>
+              <p>Pure, unfiltered honey from our hives. Rich in flavor and local goodness.</p>
+              <div class="product-footer">
+                <span class="product-price">$12.00</span>
+                <button class="btn-add-cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="col-6 col-md-4 col-lg-3 product-col fade-up">
+          <div class="product-card" data-category="pantry">
+            <!-- Replace with: <img src="assets/productPhotos/product-strawberry-preserves-jar.png" alt="A jar of Hollow Creek Farm strawberry preserves next to fresh red strawberries" class="product-card-img"> -->
+            <div class="product-card-img img-placeholder">
+              <span class="ph-icon">🍓</span>
+              <span class="ph-file">productPhotos/<br>product-strawberry-preserves-jar.png</span>
+            </div>
+            <div class="product-card-body">
+              <p class="product-category">Pantry</p>
+              <h3>Strawberry Preserves</h3>
+              <p>Slow-cooked in small batches with our own farm-fresh strawberries.</p>
+              <div class="product-footer">
+                <span class="product-price">$9.00</span>
+                <button class="btn-add-cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="col-6 col-md-4 col-lg-3 product-col fade-up">
+          <div class="product-card" data-category="pantry">
+            <!-- Replace with: <img src="assets/productPhotos/product-blueberry-preserves-jar.png" alt="A jar of Hollow Creek Farm blueberry preserves with fresh blueberries and leaves beside it" class="product-card-img"> -->
+            <div class="product-card-img img-placeholder">
+              <span class="ph-icon">🫐</span>
+              <span class="ph-file">productPhotos/<br>product-blueberry-preserves-jar.png</span>
+            </div>
+            <div class="product-card-body">
+              <p class="product-category">Pantry</p>
+              <h3>Blueberry Preserves</h3>
+              <p>Made from hand-picked blueberries, naturally sweetened and jar-sealed fresh.</p>
+              <div class="product-footer">
+                <span class="product-price">$9.00</span>
+                <button class="btn-add-cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="col-6 col-md-4 col-lg-3 product-col fade-up">
+          <div class="product-card" data-category="pantry">
+            <!-- Replace with: <img src="assets/productPhotos/product-fresh-apple-cider-jug.png" alt="A gallon jug of Hollow Creek Farm fresh-pressed apple cider with an apple and apple slice beside it" class="product-card-img"> -->
+            <div class="product-card-img img-placeholder">
+              <span class="ph-icon">🍎</span>
+              <span class="ph-file">productPhotos/<br>product-fresh-apple-cider-jug.png</span>
+            </div>
+            <div class="product-card-body">
+              <p class="product-category">Pantry</p>
+              <h3>Fresh Apple Cider</h3>
+              <p>Pressed on-site from orchard apples. No additives — just pure farm flavor.</p>
+              <div class="product-footer">
+                <span class="product-price">$10.50</span>
+                <button class="btn-add-cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="col-6 col-md-4 col-lg-3 product-col fade-up">
+          <div class="product-card" data-category="bakery">
+            <!-- Replace with: <img src="assets/productPhotos/product-sourdough-bread-loaf.png" alt="A rustic sourdough bread loaf wrapped with a Hollow Creek Farm paper band reading Farm Fresh and Locally Made" class="product-card-img"> -->
+            <div class="product-card-img img-placeholder">
+              <span class="ph-icon">🍞</span>
+              <span class="ph-file">productPhotos/<br>product-sourdough-bread-loaf.png</span>
+            </div>
+            <div class="product-card-body">
+              <p class="product-category">Bakery</p>
+              <h3>Sourdough Bread</h3>
+              <p>Baked fresh every morning. Crusty outside, airy inside — perfect with honey.</p>
+              <div class="product-footer">
+                <span class="product-price">$8.00</span>
+                <button class="btn-add-cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="col-6 col-md-4 col-lg-3 product-col fade-up">
+          <div class="product-card" data-category="bakery">
+            <!-- Replace with: <img src="assets/productPhotos/product-apple-pie-bakery.png" alt="A golden-crusted apple pie in a foil tin with a Hollow Creek Farm label band reading Made with Farm Fresh Apples" class="product-card-img"> -->
+            <div class="product-card-img img-placeholder">
+              <span class="ph-icon">🥧</span>
+              <span class="ph-file">productPhotos/<br>product-apple-pie-bakery.png</span>
+            </div>
+            <div class="product-card-body">
+              <p class="product-category">Bakery</p>
+              <h3>Apple Pie</h3>
+              <p>Old family recipe. Made with our own orchard apples and a golden butter crust.</p>
+              <div class="product-footer">
+                <span class="product-price">$18.00</span>
+                <button class="btn-add-cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="col-6 col-md-4 col-lg-3 product-col fade-up">
+          <div class="product-card" data-category="produce">
+            <!-- Replace with: <img src="assets/productPhotos/product-seasonal-produce-basket.png" alt="A wicker basket filled with seasonal produce including corn, tomatoes, peppers, and cucumbers with a Hollow Creek Farm Seasonal Produce Basket tag" class="product-card-img"> -->
+            <div class="product-card-img img-placeholder">
+              <span class="ph-icon">🥦</span>
+              <span class="ph-file">productPhotos/<br>product-seasonal-produce-basket.png</span>
+            </div>
+            <div class="product-card-body">
+              <p class="product-category">Produce</p>
+              <h3>Seasonal Produce Basket</h3>
+              <p>A curated mix of what's ripest this week — corn, tomatoes, peppers, and more.</p>
+              <div class="product-footer">
+                <span class="product-price">$22.00</span>
+                <button class="btn-add-cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="col-6 col-md-4 col-lg-3 product-col fade-up">
+          <div class="product-card" data-category="dairy">
+            <!-- Replace with: <img src="assets/productPhotos/product-fresh-eggs-dozen-carton.png" alt="A dozen fresh brown eggs in a carton with the Hollow Creek Farm label showing a red barn and sunflowers" class="product-card-img"> -->
+            <div class="product-card-img img-placeholder">
+              <span class="ph-icon">🥚</span>
+              <span class="ph-file">productPhotos/<br>product-fresh-eggs-dozen-carton.png</span>
+            </div>
+            <div class="product-card-body">
+              <p class="product-category">Eggs &amp; Dairy</p>
+              <h3>Farm-Fresh Eggs</h3>
+              <p>A dozen pasture-raised brown eggs. Rich yolks — the difference is obvious.</p>
+              <div class="product-footer">
+                <span class="product-price">$7.00</span>
+                <button class="btn-add-cart">+ Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /row -->
+
+      <div class="shop-cta-bar fade-up">
+        <a href="#" class="btn-outline">View Cart</a>
+        <a href="#" class="btn-primary">Shop All Products</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       SEASONAL DEALS
+  ====================================================== -->
+  <section id="seasonal-deals" class="section-pad bg-parchment">
+    <div class="container">
+
+      <div class="seasonal-header fade-up">
+        <span class="section-label">Limited Time</span>
+        <h2>Seasonal Deals</h2>
+        <div class="divider-leaf"><span>🌿</span></div>
+        <p class="section-intro">While you're on the farm, grab incredible items from the shop counter.</p>
+        <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
+          <a href="#farm-shop" class="btn-outline">See All Products</a>
+          <a href="#" class="btn-primary">Shop Now</a>
+        </div>
+      </div>
+
+      <!-- Season tabs -->
+      <div class="season-tab-bar fade-up">
+        <button class="season-tab" data-season="spring">🌸 Spring</button>
+        <button class="season-tab" data-season="summer">☀️ Summer</button>
+        <button class="season-tab" data-season="fall">🍂 Fall</button>
+        <button class="season-tab" data-season="winter">❄️ Winter</button>
+      </div>
+
+      <!-- Spring Panel -->
+      <div class="season-panel" data-season="spring">
+        <div class="row g-4">
+          <div class="col-md-6 fade-up">
+            <div class="deal-card">
+              <!-- Replace with: <img src="assets/productPhotos/scene-spring-baby-goats-strawberry-field.png" alt="Spring at Hollow Creek Farm with baby goats by a fence, a strawberry field in bloom, and flowering trees near the red barn" class="deal-card-img"> -->
+              <div class="deal-card-img img-placeholder">
+                <span class="ph-icon">🐐</span>
+                <span class="ph-file">scene-spring-baby-goats-<br>strawberry-field.png</span>
+              </div>
+              <div class="deal-card-body">
+                <span class="deal-badge">Spring Special</span>
+                <h3>Baby Animal Experience + Strawberry U-Pick Bundle</h3>
+                <p>Visit the animal barn and head to the strawberry field — all in one perfect spring afternoon.</p>
+                <div class="deal-price">$18.00 <span class="original">$26.00</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 fade-up">
+            <div class="deal-card">
+              <div class="deal-card-img img-placeholder">
+                <span class="ph-icon">🍓</span>
+                <span class="ph-file">productPhotos/<br>product-strawberry-preserves-jar.png</span>
+              </div>
+              <div class="deal-card-body">
+                <span class="deal-badge">Limited Stock</span>
+                <h3>Strawberry Preserves 3-Pack</h3>
+                <p>Three jars of our handmade strawberry preserves — perfect for gifting or stocking up.</p>
+                <div class="deal-price">$22.00 <span class="original">$27.00</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summer Panel -->
+      <div class="season-panel" data-season="summer">
+        <div class="row g-4">
+          <div class="col-md-6 fade-up">
+            <div class="deal-card">
+              <!-- Replace with: <img src="assets/productPhotos/scene-summer-sunflowers-berry-baskets.png" alt="A sunflower field leads to the Hollow Creek Farm barn in summer with baskets of fresh strawberries and blueberries in the foreground" class="deal-card-img"> -->
+              <div class="deal-card-img img-placeholder">
+                <span class="ph-icon">🌻</span>
+                <span class="ph-file">scene-summer-sunflowers-<br>berry-baskets.png</span>
+              </div>
+              <div class="deal-card-body">
+                <span class="deal-badge">Summer Deal</span>
+                <h3>Sunflower &amp; Berry U-Pick Combo</h3>
+                <p>Pick a bouquet of sunflowers and a basket of blueberries in one golden afternoon.</p>
+                <div class="deal-price">$20.00 <span class="original">$28.00</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 fade-up">
+            <div class="deal-card">
+              <div class="deal-card-img img-placeholder">
+                <span class="ph-icon">🍯</span>
+                <span class="ph-file">productPhotos/<br>product-raw-honey-jar.png</span>
+              </div>
+              <div class="deal-card-body">
+                <span class="deal-badge">Fan Favorite</span>
+                <h3>Honey &amp; Cider Gift Set</h3>
+                <p>A jar of raw wildflower honey paired with a fresh-pressed apple cider jug.</p>
+                <div class="deal-price">$19.00 <span class="original">$22.50</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fall Panel -->
+      <div class="season-panel" data-season="fall">
+        <div class="row g-4">
+          <div class="col-md-6 fade-up">
+            <div class="deal-card">
+              <!-- Replace with: <img src="assets/productPhotos/scene-fall-hayride-pumpkins-cornfield.png" alt="A fall harvest scene at Hollow Creek Farm with pumpkins, a hayride, and golden cornfields under autumn foliage" class="deal-card-img"> -->
+              <div class="deal-card-img img-placeholder">
+                <span class="ph-icon">🎃</span>
+                <span class="ph-file">scene-fall-hayride-<br>pumpkins-cornfield.png</span>
+              </div>
+              <div class="deal-card-body">
+                <span class="deal-badge">Fall Festival Deal</span>
+                <h3>Hayride + Corn Maze + Pumpkin Bundle</h3>
+                <p>The full fall experience — hayride, corn maze entry, and one pumpkin to take home.</p>
+                <div class="deal-price">$32.00 <span class="original">$44.00</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 fade-up">
+            <div class="deal-card">
+              <div class="deal-card-img img-placeholder">
+                <span class="ph-icon">🥧</span>
+                <span class="ph-file">productPhotos/<br>product-apple-pie-bakery.png</span>
+              </div>
+              <div class="deal-card-body">
+                <span class="deal-badge">Harvest Special</span>
+                <h3>Apple Pie + Cider Jug Combo</h3>
+                <p>One whole apple pie and a gallon of fresh-pressed cider — fall in a box.</p>
+                <div class="deal-price">$24.00 <span class="original">$28.50</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Winter Panel -->
+      <div class="season-panel" data-season="winter">
+        <div class="row g-4">
+          <div class="col-md-6 fade-up">
+            <div class="deal-card">
+              <!-- Replace with: <img src="assets/productPhotos/scene-winter-barn-holiday-lights-snow.png" alt="Hollow Creek Farm in winter with the barn and store decorated in holiday lights, wreaths, and snow-dusted Christmas trees" class="deal-card-img"> -->
+              <div class="deal-card-img img-placeholder">
+                <span class="ph-icon">🎄</span>
+                <span class="ph-file">scene-winter-barn-<br>holiday-lights-snow.png</span>
+              </div>
+              <div class="deal-card-body">
+                <span class="deal-badge">Holiday Market</span>
+                <h3>Holiday Market Entry + Wreath</h3>
+                <p>Access to the winter holiday market plus one handcrafted fresh wreath to take home.</p>
+                <div class="deal-price">$28.00 <span class="original">$36.00</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 fade-up">
+            <div class="deal-card">
+              <div class="deal-card-img img-placeholder">
+                <span class="ph-icon">🎁</span>
+                <span class="ph-file">productPhotos/<br>product-raw-honey-jar.png</span>
+              </div>
+              <div class="deal-card-body">
+                <span class="deal-badge">Gift Bundle</span>
+                <h3>Farm Store Holiday Gift Basket</h3>
+                <p>Honey, preserves, sourdough, and a farm gift card — the perfect holiday gift set.</p>
+                <div class="deal-price">$48.00 <span class="original">$58.00</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       EVENTS & ACTIVITIES
+  ====================================================== -->
+  <section id="events" class="section-pad bg-cream">
+    <div class="container">
+
+      <div class="events-header fade-up">
+        <span class="section-label">Calendar</span>
+        <h2>Events &amp; Activities</h2>
+        <div class="divider-leaf"><span>🌿</span></div>
+        <p class="section-intro">Seasonal happenings for families, friends, farm lovers, and first-time visitors.</p>
+        <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
+          <a href="#" class="btn-primary">Reserve Tickets</a>
+          <a href="#" class="btn-outline">View Calendar</a>
+        </div>
+      </div>
+
+      <div class="row g-4 mt-2">
+
+        <!-- Event 1 -->
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="event-card">
+            <!-- Replace with: <img src="assets/Events/event-fall-harvest-festival-crowds.png" alt="Crowds enjoy the Hollow Creek Farm fall harvest festival surrounded by pumpkins, hay bales, and vendor tents" class="event-card-img"> -->
+            <div class="event-card-img img-placeholder">
+              <span class="ph-icon">🎪</span>
+              <span class="ph-file">events/event-fall-harvest-<br>festival-crowds.png</span>
+            </div>
+            <div class="event-card-body">
+              <span class="event-date-badge"><i class="bi bi-calendar3"></i> Oct Weekends</span>
+              <h3>Fall Harvest Festival</h3>
+              <p>Our biggest event of the year — pumpkins, hayrides, corn maze, cider pressing, live music, and local vendors all weekend long.</p>
+              <div class="event-meta">
+                <span><i class="bi bi-clock"></i> 10am–8pm</span>
+                <span><i class="bi bi-ticket"></i> $18/adult</span>
+              </div>
+              <div class="event-card-footer">
+                <a href="#" class="btn-primary" style="font-size:0.82rem;padding:8px 16px;">Reserve Tickets</a>
+                <a href="#" class="btn-outline" style="font-size:0.82rem;padding:8px 16px;">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 2 -->
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="event-card">
+            <!-- Replace with: <img src="assets/Events/event-farm-to-table-dinner-string-lights.png" alt="An outdoor farm-to-table dinner set up at Hollow Creek Farm with sunflower centerpieces, candles, and string lights above" class="event-card-img"> -->
+            <div class="event-card-img img-placeholder">
+              <span class="ph-icon">🍽️</span>
+              <span class="ph-file">events/event-farm-to-table-<br>dinner-string-lights.png</span>
+            </div>
+            <div class="event-card-body">
+              <span class="event-date-badge"><i class="bi bi-calendar3"></i> Fri &amp; Sat Evenings</span>
+              <h3>Farm-to-Table Dinner</h3>
+              <p>An intimate outdoor dining experience under string lights. Menu crafted from that day's harvest — reservations required.</p>
+              <div class="event-meta">
+                <span><i class="bi bi-clock"></i> 6pm–9pm</span>
+                <span><i class="bi bi-ticket"></i> $65/person</span>
+              </div>
+              <div class="event-card-footer">
+                <a href="#" class="btn-primary" style="font-size:0.82rem;padding:8px 16px;">Reserve Tickets</a>
+                <a href="#" class="btn-outline" style="font-size:0.82rem;padding:8px 16px;">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 3 -->
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="event-card">
+            <!-- Replace with: <img src="assets/Events/event-holiday-market-barn-lights-winter.png" alt="Families browse vendor stalls at the Hollow Creek Farm winter holiday market, with the barn decorated in wreaths and lights" class="event-card-img"> -->
+            <div class="event-card-img img-placeholder">
+              <span class="ph-icon">🎄</span>
+              <span class="ph-file">events/event-holiday-market-<br>barn-lights-winter.png</span>
+            </div>
+            <div class="event-card-body">
+              <span class="event-date-badge"><i class="bi bi-calendar3"></i> Dec Weekends</span>
+              <h3>Holiday Market</h3>
+              <p>Shop local handmade gifts, sip warm cider, and browse local artisans inside the beautifully decorated barn.</p>
+              <div class="event-meta">
+                <span><i class="bi bi-clock"></i> 11am–7pm</span>
+                <span><i class="bi bi-ticket"></i> Free Entry</span>
+              </div>
+              <div class="event-card-footer">
+                <a href="#" class="btn-primary" style="font-size:0.82rem;padding:8px 16px;">Reserve Tickets</a>
+                <a href="#" class="btn-outline" style="font-size:0.82rem;padding:8px 16px;">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 4 -->
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="event-card">
+            <!-- Replace with: <img src="assets/Events/event-sunflower-upick-family-sunset.png" alt="A family picks sunflowers at Hollow Creek Farm at sunset, with the red barn visible in the background" class="event-card-img"> -->
+            <div class="event-card-img img-placeholder">
+              <span class="ph-icon">🌻</span>
+              <span class="ph-file">events/event-sunflower-<br>upick-family-sunset.png</span>
+            </div>
+            <div class="event-card-body">
+              <span class="event-date-badge"><i class="bi bi-calendar3"></i> July – Aug</span>
+              <h3>Sunflower Days</h3>
+              <p>The sunflower fields are in full bloom — pick your own bouquet and enjoy the views at golden hour.</p>
+              <div class="event-meta">
+                <span><i class="bi bi-clock"></i> 8am–7pm</span>
+                <span><i class="bi bi-ticket"></i> $10/person</span>
+              </div>
+              <div class="event-card-footer">
+                <a href="#" class="btn-primary" style="font-size:0.82rem;padding:8px 16px;">Reserve Tickets</a>
+                <a href="#" class="btn-outline" style="font-size:0.82rem;padding:8px 16px;">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 5 -->
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="event-card">
+            <!-- Replace with: <img src="assets/Events/event-blueberry-upick-family-summer.png" alt="A family picks blueberries at Hollow Creek Farm's U-Pick blueberry fields on a sunny summer afternoon" class="event-card-img"> -->
+            <div class="event-card-img img-placeholder">
+              <span class="ph-icon">🫐</span>
+              <span class="ph-file">events/event-blueberry-<br>upick-family-summer.png</span>
+            </div>
+            <div class="event-card-body">
+              <span class="event-date-badge"><i class="bi bi-calendar3"></i> June – July</span>
+              <h3>Blueberry U-Pick</h3>
+              <p>Head to the blueberry patch and pick fresh berries by the pound. Bring your own containers or grab ours.</p>
+              <div class="event-meta">
+                <span><i class="bi bi-clock"></i> 8am–2pm</span>
+                <span><i class="bi bi-ticket"></i> $6/lb</span>
+              </div>
+              <div class="event-card-footer">
+                <a href="#" class="btn-primary" style="font-size:0.82rem;padding:8px 16px;">Reserve Tickets</a>
+                <a href="#" class="btn-outline" style="font-size:0.82rem;padding:8px 16px;">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 6 -->
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="event-card">
+            <!-- Replace with: <img src="assets/Events/event-christmas-tree-farm-choose-cut.png" alt="Families choose and cut Christmas trees at Hollow Creek Farm while snow dusts the ground and the red barn stands in the background" class="event-card-img"> -->
+            <div class="event-card-img img-placeholder">
+              <span class="ph-icon">🌲</span>
+              <span class="ph-file">events/event-christmas-tree-<br>farm-choose-cut.png</span>
+            </div>
+            <div class="event-card-body">
+              <span class="event-date-badge"><i class="bi bi-calendar3"></i> Nov – Dec</span>
+              <h3>Choose &amp; Cut Christmas Trees</h3>
+              <p>Walk the rows and cut your own fresh Christmas tree. Saws provided — hot cider waiting at the barn.</p>
+              <div class="event-meta">
+                <span><i class="bi bi-clock"></i> 9am–5pm</span>
+                <span><i class="bi bi-ticket"></i> From $45</span>
+              </div>
+              <div class="event-card-footer">
+                <a href="#" class="btn-primary" style="font-size:0.82rem;padding:8px 16px;">Reserve Tickets</a>
+                <a href="#" class="btn-outline" style="font-size:0.82rem;padding:8px 16px;">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /row -->
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       TESTIMONIALS
+  ====================================================== -->
+  <section id="testimonials" class="section-pad bg-forest">
+    <div class="container">
+
+      <div class="text-center mb-5 fade-up">
+        <span class="section-label">What Families Say</span>
+        <h2>Families Love Hollow Creek</h2>
+        <div class="divider-leaf"><span>🌿</span></div>
+        <p class="section-intro">Real families, real memories — and they keep coming back.</p>
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <blockquote>"We've been coming to Hollow Creek every fall for six years. The corn maze and pumpkin patch are a tradition our kids look forward to all year. The farm store always has something new and delicious."</blockquote>
+            <div class="testimonial-author">
+              <!-- Replace with: <img src="assets/Staff Family Portrait Style Graphics/family-calloway-full-group-barn.png" alt="The Calloway family smiling together in front of the Hollow Creek Farm barn at sunset" class="testimonial-avatar"> -->
+              <div class="testimonial-avatar img-placeholder" style="width:44px;height:44px;">
+                <span style="font-size:1.2rem;">👩</span>
+              </div>
+              <div class="testimonial-author-info">
+                <p class="name">Sarah M.</p>
+                <p class="meta">Family of 4 · Visited October 2024</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <blockquote>"The farm-to-table dinner was absolutely magical — string lights, fresh food, and the most beautiful sunset over the barn. My partner and I celebrated our anniversary here and it was unforgettable."</blockquote>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar img-placeholder" style="width:44px;height:44px;">
+                <span style="font-size:1.2rem;">👨</span>
+              </div>
+              <div class="testimonial-author-info">
+                <p class="name">James T.</p>
+                <p class="meta">Couple · Visited August 2024</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 fade-up">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <blockquote>"Our kids are still talking about the baby goats. The U-Pick strawberry field was a huge hit and the honey we brought home is the best we've ever had. This place is a gem."</blockquote>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar img-placeholder" style="width:44px;height:44px;">
+                <span style="font-size:1.2rem;">👩</span>
+              </div>
+              <div class="testimonial-author-info">
+                <p class="name">Priya K.</p>
+                <p class="meta">Family of 5 · Visited June 2024</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+  <footer id="footer">
+    <div class="container">
+      <div class="row g-5">
+
+        <!-- Brand col -->
+        <div class="col-lg-4 col-md-6">
+          <!-- Replace with: <img src="assets/Logos/logo-barn-laurel-mark.png" alt="Hollow Creek Farm barn silhouette with green laurel branches on either side" class="footer-logo-img"> -->
+          <div class="img-placeholder footer-logo-img" style="width:60px;height:60px;border-radius:50%;margin-bottom:14px;">
+            <span style="font-size:1.5rem;">🌾</span>
+          </div>
+          <p class="footer-logo-text">Hollow Creek Farm</p>
+          <p class="footer-tagline"><em>Fresh from our fields to your family.</em></p>
+          <p style="font-size:0.85rem;color:rgba(250,243,224,0.65);line-height:1.7;">A family-owned farm offering seasonal U-Pick experiences, farm-fresh goods, events, and homegrown memories since 1962.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+            <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick links -->
+        <div class="col-lg-2 col-md-6 col-6">
+          <h4 class="footer-heading">Explore</h4>
+          <ul class="footer-links">
+            <li><a href="#today">Farm Map</a></li>
+            <li><a href="#farm-shop">Farm Shop</a></li>
+            <li><a href="#events">Events &amp; Activities</a></li>
+            <li><a href="#seasonal-deals">Seasonal Deals</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Story</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-lg-3 col-md-6 col-6">
+          <h4 class="footer-heading">Contact &amp; Hours</h4>
+          <div class="footer-contact-item">
+            <i class="bi bi-geo-alt-fill icon"></i>
+            <span>1234 Hollow Creek Road<br>Millbrook, VA 24901</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-telephone-fill icon"></i>
+            <span>(555) 123-4567</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-envelope-fill icon"></i>
+            <span>hello@hollowcreekfarm.com</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="bi bi-camera-fill icon"></i>
+            <span>Come visit by appointment</span>
+          </div>
+        </div>
+
+        <!-- Hours -->
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-heading">Hours</h4>
+          <div class="footer-hours">
+            <table>
+              <tr><td>Mon – Tue</td><td>Closed</td></tr>
+              <tr><td>Wed – Thu</td><td>10am – 5pm</td></tr>
+              <tr><td>Fri</td><td>10am – 7pm</td></tr>
+              <tr><td>Sat</td><td>8am – 8pm</td></tr>
+              <tr><td>Sun</td><td>8am – 6pm</td></tr>
+            </table>
+          </div>
+          <p style="font-size:0.75rem;color:rgba(250,243,224,0.45);margin-top:12px;">Hours vary by season and events.<br>Check social media for updates.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <span>© Hollow Creek Farm. All rights reserved.</span>
+        &nbsp;·&nbsp;
+        <a href="#">Privacy Policy</a>
+        &nbsp;·&nbsp;
+        <a href="#">Terms of Use</a>
+        &nbsp;·&nbsp;
+        <span>Site by Advanced Web Design</span>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+
+</body>
+</html>
