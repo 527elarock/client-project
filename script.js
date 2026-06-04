@@ -1,29 +1,8 @@
 /* =========================================================
-   HOLLOW CREEK FARM — main.js
+   HOLLOW CREEK FARM — script.js
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-  /* --------------------------------------------------
-     Scroll-based fade-up animations
-  -------------------------------------------------- */
-  const fadeEls = document.querySelectorAll(".fade-up");
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          // stagger by index within parent
-          const siblings = [
-            ...entry.target.parentElement.querySelectorAll(".fade-up"),
-          ];
-          const delay = siblings.indexOf(entry.target) * 80;
-          setTimeout(() => entry.target.classList.add("visible"), delay);
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12 },
-  );
-  fadeEls.forEach((el) => observer.observe(el));
 
   /* --------------------------------------------------
      Active nav link on scroll
@@ -50,29 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   sections.forEach((s) => navObserver.observe(s));
 
-  /* --------------------------------------------------
-     Navbar shrink on scroll
-  -------------------------------------------------- */
-  const nav = document.getElementById("main-nav");
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (window.scrollY > 60) {
-        nav.classList.add("nav-scrolled");
-      } else {
-        nav.classList.remove("nav-scrolled");
-      }
-    },
-    { passive: true },
-  );
 
-  // Add scrolled style inline (avoids extra CSS rule)
-  const styleTag = document.createElement("style");
-  styleTag.textContent = `
-    #main-nav.nav-scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.22); }
-    #main-nav.nav-scrolled .navbar { min-height: 54px; transition: min-height 0.25s ease; }
-  `;
-  document.head.appendChild(styleTag);
 
   /* --------------------------------------------------
      Shop filter buttons
@@ -119,18 +76,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* --------------------------------------------------
-     Add to cart (demo)
+     Add to cart 
   -------------------------------------------------- */
   let cartCount = 0;
+  //stores cart-count
   const cartBadge = document.getElementById("cart-count");
-
+//finds all with class btn-add-cart and loops through each button
+//when clicked, increase cartCount by 1
   document.querySelectorAll(".btn-add-cart").forEach((btn) => {
     btn.addEventListener("click", function () {
       cartCount++;
+      //if cartBadge exists, display cart count
+      //makes the badge visible
       if (cartBadge) {
         cartBadge.textContent = cartCount;
         cartBadge.style.display = "inline-flex";
       }
+      
+      //ai effects/styling when you click
       const orig = this.textContent;
       this.textContent = "✓ Added";
       this.style.background = "var(--color-gold)";
@@ -142,6 +105,35 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 1200);
     });
   });
+
+
+
+//-------------------------------------------------------------------
+//AI ANIMATIONS
+//-------------------------------------------------------------------
+
+
+  /* --------------------------------------------------
+     Scroll-based fade-up animations
+  -------------------------------------------------- */
+  const fadeEls = document.querySelectorAll(".fade-up");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          // stagger by index within parent
+          const siblings = [
+            ...entry.target.parentElement.querySelectorAll(".fade-up"),
+          ];
+          const delay = siblings.indexOf(entry.target) * 80;
+          setTimeout(() => entry.target.classList.add("visible"), delay);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 },
+  );
+  fadeEls.forEach((el) => observer.observe(el));
 
   /* --------------------------------------------------
      Smooth scroll for anchor links
@@ -166,3 +158,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+/* --------------------------------------------------
+     Navbar shrink on scroll
+  -------------------------------------------------- */
+  const nav = document.getElementById("main-nav");
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (window.scrollY > 60) {
+        nav.classList.add("nav-scrolled");
+      } else {
+        nav.classList.remove("nav-scrolled");
+      }
+    },
+    { passive: true },
+  );
+
+  // Add scrolled style inline (avoids extra CSS rule)
+  const styleTag = document.createElement("style");
+  styleTag.textContent = `
+    #main-nav.nav-scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.22); }
+    #main-nav.nav-scrolled .navbar { min-height: 54px; transition: min-height 0.25s ease; }
+  `;
+  document.head.appendChild(styleTag);
