@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Visit — Hollow Creek Farm</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ---- Reservations page specific styles ---- */
+    .res-hero {
+      background: var(--color-forest);
+      padding: 60px 0 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .res-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('client files/Hero Imgs/hero-farm-to-table-dinner-pavilion-sunset.png') center/cover no-repeat;
+      opacity: 0.18;
+    }
+    .res-hero .container { position: relative; z-index: 1; }
+    .res-hero h1 { color: var(--color-cream); font-size: clamp(1.8rem, 4vw, 3rem); }
+    .res-hero p  { color: rgba(250,243,224,0.78); max-width: 520px; margin: 0 auto; }
+
+    .res-breadcrumb {
+      font-size: 0.82rem;
+      color: rgba(250,243,224,0.55);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .res-breadcrumb a { color: var(--color-gold); text-decoration: none; }
+    .res-breadcrumb a:hover { text-decoration: underline; }
+
+    /* Info strip */
+    .res-info-strip {
+      background: var(--color-parchment);
+      padding: 28px 0;
+      border-bottom: 2px solid rgba(212,160,23,0.2);
+    }
+    .res-info-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 8px 0;
+    }
+    .res-info-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--color-forest);
+      color: var(--color-cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .res-info-text h4 { font-size: 0.9rem; margin: 0 0 2px; color: var(--color-forest); }
+    .res-info-text p  { font-size: 0.82rem; margin: 0; color: var(--color-earth); opacity: 0.8; }
+
+    /* Main form area */
+    .res-wrap { padding: 60px 0 80px; background: var(--color-cream); }
+
+    .res-form-wrap {
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid var(--color-parchment);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+
+    .res-form-header {
+      background: var(--color-forest);
+      padding: 28px 32px;
+    }
+    .res-form-header h2 { color: var(--color-cream); font-size: 1.5rem; margin: 0 0 4px; }
+    .res-form-header p  { color: rgba(250,243,224,0.72); margin: 0; font-size: 0.88rem; }
+
+    .res-form-body { padding: 36px 32px 40px; }
+
+    /* Form fields */
+    .form-section-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-forest);
+      margin: 0 0 18px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--color-parchment);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .form-label {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-earth);
+      margin-bottom: 6px;
+    }
+
+    .form-control, .form-select {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--color-earth);
+      border: 2px solid var(--color-parchment);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      background: var(--color-cream);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--color-forest);
+      box-shadow: 0 0 0 3px rgba(44,95,46,0.12);
+      background: #fff;
+      outline: none;
+    }
+
+    textarea.form-control { resize: vertical; min-height: 100px; }
+
+    /* Activity picker cards */
+    .activity-picker { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; }
+    .activity-pick-label {
+      cursor: pointer;
+      user-select: none;
+    }
+    .activity-pick-label input[type="radio"] { display: none; }
+    .activity-pick-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 14px 18px;
+      border: 2px solid var(--color-parchment);
+      border-radius: var(--radius);
+      background: var(--color-cream);
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--color-earth);
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+      min-width: 90px;
+      text-align: center;
+    }
+    .activity-pick-card .pick-icon { font-size: 1.5rem; }
+    .activity-pick-label input:checked + .activity-pick-card {
+      border-color: var(--color-forest);
+      background: var(--color-forest);
+      color: var(--color-cream);
+    }
+    .activity-pick-card:hover {
+      border-color: var(--color-meadow);
+    }
+
+    /* Time slot pills */
+    .time-slots { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+    .time-slot-label {
+      cursor: pointer;
+      user-select: none;
+    }
+    .time-slot-label input[type="radio"] { display: none; }
+    .time-slot-pill {
+      padding: 8px 16px;
+      border: 2px solid var(--color-parchment);
+      border-radius: 99px;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--color-earth);
+      background: var(--color-cream);
+      transition: all 0.2s;
+    }
+    .time-slot-label input:checked + .time-slot-pill {
+      background: var(--color-gold);
+      border-color: var(--color-gold);
+      color: var(--color-earth);
+    }
+    .time-slot-pill:hover { border-color: var(--color-gold); }
+
+    /* Guest size stepper */
+    .guest-stepper {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .stepper-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2px solid var(--color-forest);
+      background: transparent;
+      color: var(--color-forest);
+      font-size: 1.3rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, color 0.2s;
+      line-height: 1;
+    }
+    .stepper-btn:hover { background: var(--color-forest); color: var(--color-cream); }
+    .stepper-count {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--color-earth);
+      min-width: 32px;
+      text-align: center;
+    }
+    .stepper-label {
+      font-size: 0.82rem;
+      color: var(--color-earth);
+      opacity: 0.65;
+    }
+
+    /* Submit button */
+    .res-submit-btn {
+      width: 100%;
+      padding: 15px;
+      font-size: 1rem;
+      border: none;
+      margin-top: 8px;
+    }
+
+    /* Sidebar */
+    .res-sidebar { position: sticky; top: 80px; }
+
+    .res-sidebar-card {
+      background: #fff;
+      border: 1px solid var(--color-parchment);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+    }
+
+    .res-sidebar-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .res-sidebar-img.img-placeholder {
+      height: 180px;
+      border-radius: 0;
+      border: none;
+      border-bottom: 2px dashed var(--color-gold);
+    }
+
+    .res-sidebar-body { padding: 20px; }
+    .res-sidebar-body h4 { font-size: 1rem; margin-bottom: 8px; }
+    .res-sidebar-body p  { font-size: 0.83rem; line-height: 1.6; margin-bottom: 14px; }
+
+    .res-hours-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .res-hours-list li {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      padding: 5px 0;
+      border-bottom: 1px solid var(--color-parchment);
+      color: var(--color-earth);
+    }
+    .res-hours-list li:last-child { border-bottom: none; }
+    .res-hours-list .day { opacity: 0.7; }
+    .res-hours-list .hours { font-weight: 700; }
+
+    .res-need-help {
+      background: var(--color-forest);
+      border-radius: 12px;
+      padding: 22px 20px;
+      text-align: center;
+    }
+    .res-need-help h4 { color: var(--color-cream); font-size: 0.95rem; margin-bottom: 6px; }
+    .res-need-help p  { color: rgba(250,243,224,0.72); font-size: 0.82rem; margin-bottom: 14px; }
+    .res-need-help a  { color: var(--color-gold); font-weight: 700; font-size: 0.85rem; }
+
+    /* Confirmation screen */
+    #res-confirmation {
+      display: none;
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid var(--color-parchment);
+      box-shadow: var(--shadow-md);
+      padding: 52px 40px;
+      text-align: center;
+    }
+    .conf-checkmark {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--color-forest);
+      color: var(--color-cream);
+      font-size: 2.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    #res-confirmation h2 { color: var(--color-forest); margin-bottom: 8px; }
+    #res-confirmation .conf-sub { color: var(--color-earth); opacity: 0.7; margin-bottom: 32px; }
+
+    .conf-details {
+      background: var(--color-cream);
+      border-radius: var(--radius);
+      border: 1px solid var(--color-parchment);
+      padding: 24px 28px;
+      text-align: left;
+      max-width: 480px;
+      margin: 0 auto 32px;
+    }
+    .conf-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--color-parchment);
+      font-size: 0.9rem;
+    }
+    .conf-row:last-child { border-bottom: none; }
+    .conf-row .conf-label {
+      font-weight: 700;
+      color: var(--color-earth);
+      opacity: 0.65;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+    }
+    .conf-row .conf-value {
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--color-forest);
+      font-size: 0.95rem;
+      text-align: right;
+    }
+    .conf-number {
+      display: inline-block;
+      background: var(--color-parchment);
+      border-radius: 99px;
+      padding: 4px 16px;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--color-earth);
+      letter-spacing: 0.1em;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 991px) {
+      .res-sidebar { position: static; margin-top: 40px; }
+    }
+    @media (max-width: 575px) {
+      .res-form-body { padding: 24px 20px 28px; }
+      .activity-pick-card { min-width: 76px; padding: 12px 10px; }
+      #res-confirmation { padding: 36px 20px; }
+      .conf-details { padding: 18px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="main-nav" class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="client files/Logos/logo-main-full-color.png" alt="Hollow Creek Farm logo" class="nav-logo-img">
+        <span class="nav-logo-text">Hollow Creek Farm</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html#today">Farm Map</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#farm-shop">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#events">Events &amp; Activities</a></li>
+          <li class="nav-item"><a class="nav-link active" href="reservations.html">Reservations</a></li>
+          <li class="nav-item">
+            <a class="nav-link nav-cta" href="cart.html">
+              <i class="bi bi-cart3 me-1"></i>Cart
+              <span id="cart-count" style="display:none;background:var(--color-barn-red);color:#fff;border-radius:99px;font-size:0.65rem;padding:1px 6px;margin-left:6px;"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- PAGE HERO -->
+  <div class="res-hero">
+    <div class="container">
+      <div class="res-breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="bi bi-chevron-right"></i>
+        <span>Reservations</span>
+      </div>
+      <h1>Book Your Visit</h1>
+      <p>Select your date, activity, group size, and time slot — we'll take care of the rest.</p>
+    </div>
+  </div>
+
+
+  <!-- INFO STRIP -->
+  <div class="res-info-strip">
+    <div class="container">
+      <div class="row g-2 justify-content-center">
+        <div class="col-sm-6 col-lg-3">
+          <div class="res-info-item">
+            <div class="res-info-icon"><i class="bi bi-calendar-check"></i></div>
+            <div class="res-info-text">
+              <h4>Instant Confirmation</h4>
+              <p>Get your booking number right away.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="res-info-item">
+            <div class="res-info-icon"><i class="bi bi-people"></i></div>
+            <div class="res-info-text">
+              <h4>Groups of All Sizes</h4>
+              <p>From a couple to a crowd — we've got room.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="res-info-item">
+            <div class="res-info-icon"><i class="bi bi-shield-check"></i></div>
+            <div class="res-info-text">
+              <h4>Free Cancellation</h4>
+              <p>Cancel up to 48 hours before your visit.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="res-info-item">
+            <div class="res-info-icon"><i class="bi bi-sun"></i></div>
+            <div class="res-info-text">
+              <h4>Open Year Round</h4>
+              <p>Something special every season.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MAIN CONTENT -->
+  <div class="res-wrap">
+    <div class="container">
+      <div class="row g-5">
+
+        <!-- FORM COLUMN -->
+        <div class="col-lg-8">
+
+          <!-- Confirmation screen (hidden until form submits) -->
+          <div id="res-confirmation">
+            <div class="conf-checkmark">✓</div>
+            <h2>You're Booked!</h2>
+            <p class="conf-sub">We can't wait to see you at the farm. Here are your reservation details.</p>
+            <div class="conf-number">Confirmation # <span id="conf-number"></span></div>
+            <div class="conf-details">
+              <div class="conf-row">
+                <span class="conf-label">Name</span>
+                <span class="conf-value" id="conf-name"></span>
+              </div>
+              <div class="conf-row">
+                <span class="conf-label">Date</span>
+                <span class="conf-value" id="conf-date"></span>
+              </div>
+              <div class="conf-row">
+                <span class="conf-label">Time</span>
+                <span class="conf-value" id="conf-time"></span>
+              </div>
+              <div class="conf-row">
+                <span class="conf-label">Guests</span>
+                <span class="conf-value" id="conf-guests"></span>
+              </div>
+              <div class="conf-row">
+                <span class="conf-label">Activity</span>
+                <span class="conf-value" id="conf-activity"></span>
+              </div>
+            </div>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+              <a href="index.html" class="btn-primary">Back to Home</a>
+              <a href="index.html#events" class="btn-outline">Browse More Events</a>
+            </div>
+          </div>
+
+          <!-- Reservation form -->
+          <div class="res-form-wrap">
+            <div class="res-form-header">
+              <h2><i class="bi bi-calendar3 me-2"></i>Reservation Details</h2>
+              <p>All fields are required. Bookings are held for 24 hours.</p>
+            </div>
+
+            <div class="res-form-body">
+              <form id="reservation-form" novalidate>
+
+                <!-- Section 1: Your Info -->
+                <p class="form-section-title"><i class="bi bi-person"></i> Your Information</p>
+                <div class="row g-3 mb-4">
+                  <div class="col-sm-6">
+                    <label for="res-name" class="form-label">Full Name</label>
+                    <input type="text" id="res-name" class="form-control" placeholder="Jane Smith" required>
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="res-email" class="form-label">Email Address</label>
+                    <input type="email" id="res-email" class="form-control" placeholder="jane@email.com" required>
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="res-phone" class="form-label">Phone Number</label>
+                    <input type="tel" id="res-phone" class="form-control" placeholder="(555) 000-0000">
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="res-zip" class="form-label">ZIP Code</label>
+                    <input type="text" id="res-zip" class="form-control" placeholder="24901">
+                  </div>
+                </div>
+
+                <!-- Section 2: Date & Time -->
+                <p class="form-section-title"><i class="bi bi-clock"></i> Date &amp; Time</p>
+                <div class="row g-3 mb-4">
+                  <div class="col-sm-6">
+                    <label for="res-date" class="form-label">Select Date</label>
+                    <input type="date" id="res-date" class="form-control" required>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label">Select Time Slot</label>
+                    <div class="time-slots">
+                      <label class="time-slot-label">
+                        <input type="radio" name="res-time-radio" value="9:00 AM" id="res-time" checked>
+                        <span class="time-slot-pill">9:00 AM</span>
+                      </label>
+                      <label class="time-slot-label">
+                        <input type="radio" name="res-time-radio" value="10:30 AM">
+                        <span class="time-slot-pill">10:30 AM</span>
+                      </label>
+                      <label class="time-slot-label">
+                        <input type="radio" name="res-time-radio" value="12:00 PM">
+                        <span class="time-slot-pill">12:00 PM</span>
+                      </label>
+                      <label class="time-slot-label">
+                        <input type="radio" name="res-time-radio" value="1:30 PM">
+                        <span class="time-slot-pill">1:30 PM</span>
+                      </label>
+                      <label class="time-slot-label">
+                        <input type="radio" name="res-time-radio" value="3:00 PM">
+                        <span class="time-slot-pill">3:00 PM</span>
+                      </label>
+                      <label class="time-slot-label">
+                        <input type="radio" name="res-time-radio" value="4:30 PM">
+                        <span class="time-slot-pill">4:30 PM</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Section 3: Group Size -->
+                <p class="form-section-title"><i class="bi bi-people"></i> Group Size</p>
+                <div class="mb-4">
+                  <div class="guest-stepper">
+                    <button type="button" class="stepper-btn" id="guests-minus">−</button>
+                    <span class="stepper-count" id="guests-display">2</span>
+                    <button type="button" class="stepper-btn" id="guests-plus">+</button>
+                    <span class="stepper-label">guests (max 20)</span>
+                  </div>
+                  <input type="hidden" id="res-guests" value="2">
+                </div>
+
+                <!-- Section 4: Activity -->
+                <p class="form-section-title"><i class="bi bi-stars"></i> Choose an Activity</p>
+                <div class="mb-4">
+                  <div class="activity-picker">
+                    <label class="activity-pick-label">
+                      <input type="radio" name="res-activity-radio" id="res-activity" value="General Farm Visit" checked>
+                      <div class="activity-pick-card">
+                        <span class="pick-icon">🌾</span>
+                        <span>General Visit</span>
+                      </div>
+                    </label>
+                    <label class="activity-pick-label">
+                      <input type="radio" name="res-activity-radio" value="Sunflower U-Pick">
+                      <div class="activity-pick-card">
+                        <span class="pick-icon">🌻</span>
+                        <span>Sunflower U-Pick</span>
+                      </div>
+                    </label>
+                    <label class="activity-pick-label">
+                      <input type="radio" name="res-activity-radio" value="Pumpkin Patch">
+                      <div class="activity-pick-card">
+                        <span class="pick-icon">🎃</span>
+                        <span>Pumpkin Patch</span>
+                      </div>
+                    </label>
+                    <label class="activity-pick-label">
+                      <input type="radio" name="res-activity-radio" value="Corn Maze">
+                      <div class="activity-pick-card">
+                        <span class="pick-icon">🌽</span>
+                        <span>Corn Maze</span>
+                      </div>
+                    </label>
+                    <label class="activity-pick-label">
+                      <input type="radio" name="res-activity-radio" value="Hayride">
+                      <div class="activity-pick-card">
+                        <span class="pick-icon">🚜</span>
+                        <span>Hayride</span>
+                      </div>
+                    </label>
+                    <label class="activity-pick-label">
+                      <input type="radio" name="res-activity-radio" value="Farm-to-Table Dinner">
+                      <div class="activity-pick-card">
+                        <span class="pick-icon">🍽️</span>
+                        <span>Farm Dinner</span>
+                      </div>
+                    </label>
+                    <label class="activity-pick-label">
+                      <input type="radio" name="res-activity-radio" value="Animal Barn">
+                      <div class="activity-pick-card">
+                        <span class="pick-icon">🐐</span>
+                        <span>Animal Barn</span>
+                      </div>
+                    </label>
+                    <label class="activity-pick-label">
+                      <input type="radio" name="res-activity-radio" value="Holiday Market">
+                      <div class="activity-pick-card">
+                        <span class="pick-icon">🎄</span>
+                        <span>Holiday Market</span>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Section 5: Special Requests -->
+                <p class="form-section-title"><i class="bi bi-chat-dots"></i> Special Requests <span style="font-weight:400;opacity:0.5;font-size:0.85rem;">(optional)</span></p>
+                <div class="mb-4">
+                  <textarea id="res-notes" class="form-control" placeholder="Allergies, accessibility needs, celebrating a special occasion..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary res-submit-btn">
+                  <i class="bi bi-calendar-check me-2"></i>Confirm Reservation
+                </button>
+
+              </form>
+            </div>
+          </div>
+
+        </div><!-- /form col -->
+
+
+        <!-- SIDEBAR -->
+        <div class="col-lg-4">
+          <div class="res-sidebar">
+
+            <!-- Farm hours card -->
+            <div class="res-sidebar-card">
+              <img src="client files/Hero Imgs/hero-farm-store-exterior-summer.png"
+                   alt="The Hollow Creek Farm store exterior in summer, a white farmhouse building with produce and flowers on the porch"
+                   class="res-sidebar-img">
+              <div class="res-sidebar-body">
+                <h4>Farm Hours</h4>
+                <ul class="res-hours-list">
+                  <li><span class="day">Mon – Tue</span><span class="hours" style="color:var(--color-barn-red);">Closed</span></li>
+                  <li><span class="day">Wed – Thu</span><span class="hours">10am – 5pm</span></li>
+                  <li><span class="day">Friday</span><span class="hours">10am – 7pm</span></li>
+                  <li><span class="day">Saturday</span><span class="hours">8am – 8pm</span></li>
+                  <li><span class="day">Sunday</span><span class="hours">8am – 6pm</span></li>
+                </ul>
+                <p style="font-size:0.75rem;opacity:0.55;margin:10px 0 0;">Hours vary by season. Check social media for updates.</p>
+              </div>
+            </div>
+
+            <!-- What to bring card -->
+            <div class="res-sidebar-card">
+              <div class="res-sidebar-body">
+                <h4>What to Bring</h4>
+                <ul style="padding-left:18px;font-size:0.85rem;color:var(--color-earth);line-height:2;">
+                  <li>Comfortable walking shoes</li>
+                  <li>Sunscreen &amp; bug spray</li>
+                  <li>Water bottle</li>
+                  <li>Camera for photos</li>
+                  <li>Cash or card for the farm store</li>
+                  <li>Extra bags for U-Pick produce</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Need help -->
+            <div class="res-need-help">
+              <h4>Need Help Booking?</h4>
+              <p>Call or email us and we'll get you sorted right away.</p>
+              <a href="javascript:void(0)"><i class="bi bi-telephone me-1"></i>(555) 123-4567</a><br><br>
+              <a href="javascript:void(0)"><i class="bi bi-envelope me-1"></i>hello@hollowcreekfarm.com</a>
+            </div>
+
+          </div>
+        </div><!-- /sidebar -->
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- FOOTER STRIP -->
+  <div style="background:var(--color-earth);padding:20px 0;text-align:center;">
+    <p style="color:rgba(250,243,224,0.45);font-size:0.8rem;margin:0;">© Hollow Creek Farm. All rights reserved.</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+
+  <script>
+    // Set min date to today
+    const dateInput = document.getElementById('res-date');
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.min = today;
+      dateInput.value = today;
+    }
+
+    // Guest stepper
+    let guestCount = 2;
+    const guestsDisplay = document.getElementById('guests-display');
+    const guestsInput   = document.getElementById('res-guests');
+
+    document.getElementById('guests-minus').addEventListener('click', () => {
+      if (guestCount > 1) {
+        guestCount--;
+        guestsDisplay.textContent = guestCount;
+        guestsInput.value = guestCount;
+      }
+    });
+    document.getElementById('guests-plus').addEventListener('click', () => {
+      if (guestCount < 20) {
+        guestCount++;
+        guestsDisplay.textContent = guestCount;
+        guestsInput.value = guestCount;
+      }
+    });
+
+    // Sync time slot radio to hidden input
+    document.querySelectorAll('input[name="res-time-radio"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        document.getElementById('res-time').value = radio.value;
+      });
+    });
+
+    // Sync activity radio to hidden input
+    document.querySelectorAll('input[name="res-activity-radio"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        document.getElementById('res-activity').value = radio.value;
+      });
+    });
+  </script>
+
+</body>
+</html>
