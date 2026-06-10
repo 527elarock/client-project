@@ -1,10 +1,8 @@
-/* =========================================================
-   HOLLOW CREEK FARM — script.js
-   ========================================================= */
 
-/* --------------------------------------------------
-   CART — in-memory store (persists while tab is open)
--------------------------------------------------- */
+
+/*--------------------------------------------------
+  AI CART FEATUREs
+--------------------------------------------------*/
 const HCFCart = {
   items: [],
 
@@ -46,7 +44,6 @@ const HCFCart = {
   },
 
   save() {
-    // Store in sessionStorage so cart survives page navigation within the same tab
     try {
       sessionStorage.setItem("hcf_cart", JSON.stringify(this.items));
     } catch (e) {}
@@ -60,12 +57,16 @@ const HCFCart = {
   },
 };
 
-// Load cart on every page
+// Load cart immediately so badge is correct before DOM finishes
 HCFCart.load();
 
-/* --------------------------------------------------
-   Update nav cart badge count
--------------------------------------------------- */
+/*--------------------------------------------------
+  END OF AI CART FEATURES
+--------------------------------------------------*/
+
+/*--------------------------------------------------
+  Update nav cart badge (From Data Collection Site)
+--------------------------------------------------*/
 function updateCartBadge() {
   const badge = document.getElementById("cart-count");
   if (!badge) return;
@@ -75,6 +76,12 @@ function updateCartBadge() {
 }
 
 updateCartBadge();
+
+
+/*--------------------------------------------------
+AI SCROLL ANIMATIONS
+--------------------------------------------------*/
+
 
 document.addEventListener("DOMContentLoaded", () => {
   /* --------------------------------------------------
@@ -144,6 +151,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.head.appendChild(styleTag);
   }
 
+  /*--------------------------------------------------
+END OF AI SCROLL ANIMATIONS
+--------------------------------------------------*/
+
   /* --------------------------------------------------
      Shop filter buttons
   -------------------------------------------------- */
@@ -184,7 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (seasonTabs.length) seasonTabs[0].click();
 
   /* --------------------------------------------------
-     Add to cart — reads data attributes from each button
+     Add to cart
   -------------------------------------------------- */
   document.querySelectorAll(".btn-add-cart").forEach((btn) => {
     btn.addEventListener("click", function () {
@@ -195,6 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
       HCFCart.add(name, price, category);
       updateCartBadge();
 
+      //used ai
       const orig = this.textContent;
       this.textContent = "✓ Added";
       this.style.background = "var(--color-gold)";
@@ -206,6 +218,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 1200);
     });
   });
+  //end of ai
+
+  /*--------------------------------------------------
+  MORE AI SCROLL ANIMATIONS
+--------------------------------------------------*/
 
   /* --------------------------------------------------
      Smooth scroll for anchor links
@@ -229,17 +246,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  /*--------------------------------------------------
+  END OF MORE AI SCROLL ANIMATIONS
+--------------------------------------------------*/
+
+
   /* --------------------------------------------------
-     Cart page — render cart items
+     Cart page — render items
   -------------------------------------------------- */
+  //find container where items will be displayed
   const cartContainer = document.getElementById("cart-items-container");
+  //if container exists, display cart contents
   if (cartContainer) renderCart();
 
   function renderCart() {
+    //get all items stored in cart
     const cart = HCFCart.items;
+    //get cart summary section
     const summary = document.getElementById("cart-summary");
 
+    //check if cart empty
     if (cart.length === 0) {
+      //if empty, show empty message
       cartContainer.innerHTML = `
         <div class="cart-empty">
           <div class="cart-empty-icon">🛒</div>
@@ -247,12 +275,15 @@ document.addEventListener("DOMContentLoaded", () => {
           <p>Head back to the farm shop and add some goodies!</p>
           <a href="index.html#farm-shop" class="btn-primary" style="margin-top:16px;display:inline-block;">Back to Shop</a>
         </div>`;
+        //hide summary section since no items
       if (summary) summary.style.display = "none";
+      //stop running function
       return;
     }
 
+    //if there are items, show summary
     if (summary) summary.style.display = "";
-
+    //create HTML for each item in cart (.map does it)
     cartContainer.innerHTML = cart
       .map(
         (item) => `
@@ -264,16 +295,18 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="cart-row-controls">
           <button class="qty-btn minus" data-name="${item.name}">−</button>
           <span class="qty-display">${item.qty}</span>
-          <button class="qty-btn plus"  data-name="${item.name}">+</button>
+          <button class="qty-btn plus" data-name="${item.name}">+</button>
         </div>
         <div class="cart-row-price">$${(item.price * item.qty).toFixed(2)}</div>
         <button class="cart-remove" data-name="${item.name}" aria-label="Remove item">✕</button>
       </div>
     `,
       )
+      //combine all items into one string
       .join("");
 
-    // Subtotal / total
+      //used ai
+
     const subtotal = HCFCart.total();
     const tax = subtotal * 0.07;
     const total = subtotal + tax;
@@ -283,7 +316,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("cart-tax").textContent = `$${tax.toFixed(2)}`;
     document.getElementById("cart-total").textContent = `$${total.toFixed(2)}`;
 
-    // Qty buttons
     cartContainer.querySelectorAll(".qty-btn.minus").forEach((btn) => {
       btn.addEventListener("click", () => {
         const item = HCFCart.items.find((i) => i.name === btn.dataset.name);
@@ -302,7 +334,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // Remove buttons
     cartContainer.querySelectorAll(".cart-remove").forEach((btn) => {
       btn.addEventListener("click", () => {
         HCFCart.remove(btn.dataset.name);
@@ -312,15 +343,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+    //end of ai
+
+
   /* --------------------------------------------------
-     Checkout button (demo)
+     Checkout functionality 
   -------------------------------------------------- */
+  //find button using its id
   const checkoutBtn = document.getElementById("checkout-btn");
+  //if it exists, continue
   if (checkoutBtn) {
     checkoutBtn.addEventListener("click", () => {
+      //if cart is empty, stop the function immediately 
       if (HCFCart.items.length === 0) return;
+      //remove items from cart
       HCFCart.clear();
+      //update the little number icon
       updateCartBadge();
+      //replace cards contents with a success message
       cartContainer.innerHTML = `
         <div class="cart-empty">
           <div class="cart-empty-icon">✅</div>
@@ -328,12 +368,14 @@ document.addEventListener("DOMContentLoaded", () => {
           <p>Your farm order has been received. We'll have everything ready for your visit.</p>
           <a href="index.html" class="btn-primary" style="margin-top:16px;display:inline-block;">Back to Home</a>
         </div>`;
+        //hide the summary section since no more items
       document.getElementById("cart-summary").style.display = "none";
     });
   }
 
+
   /* --------------------------------------------------
-     Reservations page — confirmation on submit
+     Reservations page USED AI
   -------------------------------------------------- */
   const resForm = document.getElementById("reservation-form");
   if (resForm) {
@@ -346,7 +388,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const guests = document.getElementById("res-guests").value;
       const activity = document.getElementById("res-activity").value;
 
-      // Format date nicely
       const dateObj = new Date(date + "T12:00:00");
       const dateStr = dateObj.toLocaleDateString("en-US", {
         weekday: "long",
@@ -369,4 +410,4 @@ document.addEventListener("DOMContentLoaded", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
-});
+}); 
