@@ -1,7 +1,7 @@
 
 
 /*--------------------------------------------------
-  AI CART FEATUREs
+  AI CART EXTRA FEATUREs
 --------------------------------------------------*/
 const HCFCart = {
   items: [],
@@ -61,7 +61,7 @@ const HCFCart = {
 HCFCart.load();
 
 /*--------------------------------------------------
-  END OF AI CART FEATURES
+  END OF AI CART EXTRA FEATURES
 --------------------------------------------------*/
 
 /*--------------------------------------------------
@@ -158,16 +158,24 @@ END OF AI SCROLL ANIMATIONS
   /* --------------------------------------------------
      Shop filter buttons
   -------------------------------------------------- */
+
+  // Get all of the filter buttons
   const filterBtns = document.querySelectorAll(".filter-btn");
+  // Get all product cards that have a category assigned
   const productCards = document.querySelectorAll(
     ".product-card[data-category]",
   );
-
+  // Go through each filter button
   filterBtns.forEach((btn) => {
+    //When a filter button is clicked remove the "active" class from every button (makes only one filter button look selected)
     btn.addEventListener("click", () => {
       filterBtns.forEach((b) => b.classList.remove("active"));
+      // Add the "active" class to the button that was clicked
       btn.classList.add("active");
+      // Get the category this button represents
       const cat = btn.dataset.filter;
+      // Check every product card
+      // SHOW PRODUCT IF "all" button was selected OR product's category matches the selected category
       productCards.forEach((card) => {
         const show = cat === "all" || card.dataset.category === cat;
         card.closest(".product-col").style.display = show ? "" : "none";
@@ -178,10 +186,14 @@ END OF AI SCROLL ANIMATIONS
   /* --------------------------------------------------
      Season tabs
   -------------------------------------------------- */
+
+  // Get all of the season tabs and panels
   const seasonTabs = document.querySelectorAll(".season-tab");
   const seasonPanels = document.querySelectorAll(".season-panel");
 
+  // Go through each season tab
   seasonTabs.forEach((tab) => {
+    // When a tab is clicked, remove the "active" class from all tabs then highlight the tab that was clicked
     tab.addEventListener("click", () => {
       seasonTabs.forEach((t) => t.classList.remove("active"));
       tab.classList.add("active");
@@ -192,21 +204,29 @@ END OF AI SCROLL ANIMATIONS
     });
   });
 
+  // When the page first loads, automatically "click" the first tab to set default active tab and panel
   if (seasonTabs.length) seasonTabs[0].click();
 
   /* --------------------------------------------------
      Add to cart
   -------------------------------------------------- */
+
+  // Find every "Add to Cart" button
   document.querySelectorAll(".btn-add-cart").forEach((btn) => {
+    // Add a click event to each button
     btn.addEventListener("click", function () {
+      // Get the product's name from the button's data-name attribute
       const name = this.dataset.name;
+      //Get the product's price from data-price. parseFloat (FROM WEB) converts the text into a number
       const price = parseFloat(this.dataset.price);
+      // Get the product's category from data-category, if no category exists, use an empty string instead
       const category = this.dataset.category || "";
 
+      // Add the product to the shopping cart and update the badge number on the cart button
       HCFCart.add(name, price, category);
       updateCartBadge();
 
-      //used ai
+      //used ai, styling after adding
       const orig = this.textContent;
       this.textContent = "✓ Added";
       this.style.background = "var(--color-gold)";
@@ -250,9 +270,8 @@ END OF AI SCROLL ANIMATIONS
   END OF MORE AI SCROLL ANIMATIONS
 --------------------------------------------------*/
 
-
   /* --------------------------------------------------
-     Cart page — render items
+     Cart page, render items
   -------------------------------------------------- */
   //find container where items will be displayed
   const cartContainer = document.getElementById("cart-items-container");
@@ -275,7 +294,7 @@ END OF AI SCROLL ANIMATIONS
           <p>Head back to the farm shop and add some goodies!</p>
           <a href="index.html#farm-shop" class="btn-primary" style="margin-top:16px;display:inline-block;">Back to Shop</a>
         </div>`;
-        //hide summary section since no items
+      //hide summary section since no items
       if (summary) summary.style.display = "none";
       //stop running function
       return;
@@ -305,7 +324,7 @@ END OF AI SCROLL ANIMATIONS
       //combine all items into one string
       .join("");
 
-      //used ai
+    //used ai
 
     const subtotal = HCFCart.total();
     const tax = subtotal * 0.07;
@@ -343,8 +362,7 @@ END OF AI SCROLL ANIMATIONS
     });
   }
 
-    //end of ai
-
+  //end of ai
 
   /* --------------------------------------------------
      Checkout functionality 
@@ -354,7 +372,7 @@ END OF AI SCROLL ANIMATIONS
   //if it exists, continue
   if (checkoutBtn) {
     checkoutBtn.addEventListener("click", () => {
-      //if cart is empty, stop the function immediately 
+      //if cart is empty, stop the function immediately
       if (HCFCart.items.length === 0) return;
       //remove items from cart
       HCFCart.clear();
@@ -368,11 +386,10 @@ END OF AI SCROLL ANIMATIONS
           <p>Your farm order has been received. We'll have everything ready for your visit.</p>
           <a href="index.html" class="btn-primary" style="margin-top:16px;display:inline-block;">Back to Home</a>
         </div>`;
-        //hide the summary section since no more items
+      //hide the summary section since no more items
       document.getElementById("cart-summary").style.display = "none";
     });
   }
-
 
   /* --------------------------------------------------
      Reservations page USED AI
